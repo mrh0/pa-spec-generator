@@ -16,5 +16,5 @@ The generated spec files are put in the [/specs](https://github.com/mrh0/pa-spec
 ## Usage
 
 ```shell
-npm start <path to /Planetary Annihilation Titans>
+npm start <path to Planetary Annihilation Titans>
 ```
