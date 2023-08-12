@@ -1,6 +1,6 @@
 # Generates JSON-schemas for Planetery Annihilation: Titans spec files.
 
-This Node.js script generates infered JSON-schemas beased on the files in the PA `/media/pa_ex1` directory
+This Node.js script generates infered JSON-schemas based on the files in the PA `/media/pa_ex1` directory
 
 ## Supported spec types
 - AI builds
