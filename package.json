@@ -1,0 +1,15 @@
+{
+  "name": "pa-mod-validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "MRH0",
+  "license": "MIT",
+  "dependencies": {
+    "genson-js": "^0.0.8"
+  },
+  "type": "module"
+}
