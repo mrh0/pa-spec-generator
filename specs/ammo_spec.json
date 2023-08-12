@@ -1,0 +1,356 @@
+{
+  "type": "object",
+  "properties": {
+    "base_spec": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "damage": {
+      "type": "integer"
+    },
+    "splash_damage": {
+      "type": "integer"
+    },
+    "splash_radius": {
+      "type": "number"
+    },
+    "cruise_height": {
+      "type": "integer"
+    },
+    "initial_velocity": {
+      "type": "integer"
+    },
+    "max_velocity": {
+      "type": "integer"
+    },
+    "turn_rate": {
+      "type": "integer"
+    },
+    "lifetime": {
+      "type": "number"
+    },
+    "max_health": {
+      "type": "integer"
+    },
+    "influence_radius": {
+      "type": "integer"
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "died": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_world_aligned": {
+              "type": "boolean"
+            },
+            "effect_scale": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "effect_spec"
+          ]
+        },
+        "collided": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_world_aligned": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec",
+            "effect_world_aligned"
+          ]
+        }
+      }
+    },
+    "audio_loop": {
+      "type": "string"
+    },
+    "physics": {
+      "type": "object",
+      "properties": {
+        "radius": {
+          "type": "integer"
+        },
+        "gravity_scalar": {
+          "type": "integer"
+        },
+        "ignore_gravity": {
+          "type": "boolean"
+        },
+        "add_to_spatial_db": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "allow_underground": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "radius",
+        "add_to_spatial_db"
+      ]
+    },
+    "flight_type": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ignores_gravity": {
+            "type": "boolean"
+          },
+          "ignores_LOS": {
+            "type": "boolean"
+          },
+          "stage_duration": {
+            "type": "integer"
+          },
+          "stage_turn_rate": {
+            "type": "integer"
+          },
+          "apply_thrust": {
+            "type": "boolean"
+          },
+          "rotates_to_velocity": {
+            "type": "boolean"
+          },
+          "stage_change_range": {
+            "type": "integer"
+          },
+          "die_here": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "full_damage_splash_radius": {
+      "type": "number"
+    },
+    "splash_damages_allies": {
+      "type": "boolean"
+    },
+    "damage_volume": {
+      "type": "object",
+      "properties": {
+        "initial_radius": {
+          "type": "integer"
+        },
+        "radius_velocity": {
+          "type": "integer"
+        },
+        "radius_accel": {
+          "type": "integer"
+        },
+        "delay": {
+          "type": "number"
+        },
+        "burnable_remove_radius": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "initial_radius",
+        "radius_velocity"
+      ]
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ]
+        }
+      ]
+    },
+    "fx_trail": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "filename"
+      ]
+    },
+    "collision_check": {
+      "type": "string"
+    },
+    "fx_beam_spec": {
+      "type": "string"
+    },
+    "collision_response": {
+      "type": "string"
+    },
+    "fx_collision_spec": {
+      "type": "string"
+    },
+    "armor_damage_map": {
+      "type": "object",
+      "properties": {
+        "AT_Air": {
+          "type": "number"
+        },
+        "AT_Orbital": {
+          "type": "number"
+        },
+        "AT_Structure": {
+          "type": "integer"
+        },
+        "AT_Vehicle": {
+          "type": "integer"
+        },
+        "AT_Bot": {
+          "type": "integer"
+        },
+        "AT_Naval": {
+          "type": "integer"
+        },
+        "AT_Commander": {
+          "type": "number"
+        },
+        "AT_Hover": {
+          "type": "integer"
+        }
+      }
+    },
+    "ammo_type": {
+      "type": "string"
+    },
+    "burn_damage": {
+      "type": "integer"
+    },
+    "burn_radius": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "si_name": {
+      "type": "string"
+    },
+    "has_notifications": {
+      "type": "boolean"
+    },
+    "build_metal_cost": {
+      "type": "integer"
+    },
+    "show_strategic_icon": {
+      "type": "boolean"
+    },
+    "spawn_layers": {
+      "type": "string"
+    },
+    "collision_bounds": {
+      "type": "integer"
+    },
+    "recon": {
+      "type": "object",
+      "properties": {
+        "observable": {
+          "type": "object",
+          "properties": {
+            "ignore_radar": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ignore_radar"
+          ]
+        }
+      },
+      "required": [
+        "observable"
+      ]
+    },
+    "spawn_unit_on_death": {
+      "type": "string"
+    },
+    "damage_target": {
+      "type": "string"
+    },
+    "interplanetary_type": {
+      "type": "string"
+    },
+    "system_velocity_multiplier": {
+      "type": "integer"
+    },
+    "gravwell_velocity_multiplier": {
+      "type": "integer"
+    },
+    "show_in_orbital_layer": {
+      "type": "boolean"
+    },
+    "splash_damage_orbital": {
+      "type": "boolean"
+    },
+    "enable_orbital_shell": {
+      "type": "boolean"
+    },
+    "sim_impact_effect": {
+      "type": "string"
+    },
+    "impact_decals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "signal_type": {
+      "type": "string"
+    },
+    "unit_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_on_planet_handoff": {
+      "type": "integer"
+    },
+    "sim_fire_effect": {
+      "type": "string"
+    },
+    "flight_layer": {
+      "type": "string"
+    }
+  }
+}

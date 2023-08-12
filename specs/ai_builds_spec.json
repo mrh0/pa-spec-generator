@@ -1,0 +1,166 @@
+{
+  "type": "object",
+  "properties": {
+    "build_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "to_build": {
+            "type": "string"
+          },
+          "instance_count": {
+            "type": "integer"
+          },
+          "shared_instance_count": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "min_num_assisters": {
+            "type": "integer"
+          },
+          "max_num_assisters": {
+            "type": "integer"
+          },
+          "builders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "build_conditions": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "test_type": {
+                    "type": "string"
+                  },
+                  "boolean": {
+                    "type": "boolean"
+                  },
+                  "string0": {
+                    "type": "string"
+                  },
+                  "unit_type_string0": {
+                    "type": "string"
+                  },
+                  "compare0": {
+                    "type": "string"
+                  },
+                  "value0": {
+                    "type": "number"
+                  },
+                  "string1": {
+                    "type": "string"
+                  },
+                  "value1": {
+                    "type": "integer"
+                  },
+                  "unit_type_string1": {
+                    "type": "string"
+                  },
+                  "string2": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "test_type"
+                ]
+              }
+            }
+          },
+          "placement_rules": {
+            "type": "object",
+            "properties": {
+              "buffer": {
+                "type": "integer"
+              },
+              "threat": {
+                "type": "object",
+                "properties": {
+                  "influence_type": {
+                    "type": "string"
+                  },
+                  "compare_type": {
+                    "type": "string"
+                  },
+                  "radius": {
+                    "type": "integer"
+                  },
+                  "value": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "influence_type",
+                  "compare_type",
+                  "radius",
+                  "value"
+                ]
+              },
+              "placement_type": {
+                "type": "string"
+              },
+              "unit_count_rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "unit_type_string": {
+                      "type": "string"
+                    },
+                    "alliance": {
+                      "type": "string"
+                    },
+                    "compare_type": {
+                      "type": "string"
+                    },
+                    "range": {
+                      "type": "integer"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "unit_type_string",
+                    "alliance",
+                    "compare_type",
+                    "range",
+                    "count"
+                  ]
+                }
+              }
+            }
+          },
+          "base_sort": {
+            "type": "string"
+          },
+          "task_type": {
+            "type": "string"
+          },
+          "cross_planet_shared_count": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "instance_count",
+          "priority",
+          "build_conditions"
+        ]
+      }
+    }
+  },
+  "required": [
+    "build_list"
+  ]
+}

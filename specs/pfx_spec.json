@@ -1,0 +1,1089 @@
+{
+  "type": "object",
+  "properties": {
+    "emitters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "spec": {
+            "type": "object",
+            "properties": {
+              "shader": {
+                "type": "string"
+              },
+              "facing": {
+                "type": "string"
+              },
+              "rgb": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "integer"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "sizeX": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "baseTexture": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "red": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "stepped": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "green": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "stepped": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "blue": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "stepped": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "keys",
+                      "stepped"
+                    ]
+                  }
+                ]
+              },
+              "alpha": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "stepped": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "cameraPush": {
+                "type": "number"
+              },
+              "dataChannelFormat": {
+                "type": "string"
+              },
+              "shape": {
+                "type": "string"
+              },
+              "sizeY": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "rotationRateMult": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "papa": {
+                "type": "string"
+              },
+              "materialProperties": {
+                "type": "object",
+                "properties": {
+                  "Texture": {
+                    "type": "string"
+                  },
+                  "Ramp": {
+                    "type": "string"
+                  },
+                  "DiffuseTexture": {
+                    "type": "string"
+                  }
+                }
+              },
+              "size": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "keys": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "stepped": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "keys"
+                    ]
+                  }
+                ]
+              },
+              "polyAdjustCenter": {
+                "type": "number"
+              },
+              "camera_push": {
+                "type": "number"
+              },
+              "flipBookColumns": {
+                "type": "integer"
+              },
+              "flipBookRows": {
+                "type": "integer"
+              },
+              "frameCurve": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                ]
+              },
+              "flipBookRandomStart": {
+                "type": "boolean"
+              },
+              "dataChannelFork;jimat": {
+                "type": "string"
+              },
+              "rampTexture": {
+                "type": "string"
+              },
+              "useRandomDir": {
+                "type": "boolean"
+              },
+              "sixeY": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "useInitialVelocityDir": {
+                "type": "boolean"
+              },
+              "sizeZ": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "_sizeX": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "velocity": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "sixeX": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "offsetZ": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "offsetRangeX": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "offsetRangeY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "sizeX": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "sizeRangeX": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "lifetime": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "lifetimeRange": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "rotationRange": {
+            "type": "number"
+          },
+          "rotationRateRange": {
+            "type": "number"
+          },
+          "emissionRate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "stepped": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "keys",
+                  "stepped"
+                ]
+              }
+            ]
+          },
+          "emitterLifetime": {
+            "type": "number"
+          },
+          "bLoop": {
+            "type": "boolean"
+          },
+          "endDistance": {
+            "type": "integer"
+          },
+          "offsetRangeZ": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "emissionBursts": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "time": {
+                          "type": "number"
+                        },
+                        "count": {
+                          "type": "integer"
+                        },
+                        "countRange": {
+                          "type": "integer"
+                        },
+                        "chance": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "time",
+                        "count"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "time": {
+                    "type": "number"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "chance": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "count"
+                ]
+              }
+            ]
+          },
+          "sizeY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "rotationRate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "delay": {
+            "type": "number"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "offsetX": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "offsetY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "velocity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "velocityRange": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "useRadialVelocityDir": {
+            "type": "boolean"
+          },
+          "gravity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            ]
+          },
+          "drag": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "sizeRangeY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            ]
+          },
+          "maxParticles": {
+            "type": "integer"
+          },
+          "killOnDeactivate": {
+            "type": "boolean"
+          },
+          "alpha": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "velocityY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "velocityRangeX": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "velocityRangeY": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "beamSegmentLength": {
+            "type": "integer"
+          },
+          "beamSegmentEmitRate": {
+            "type": "integer"
+          },
+          "useWorldSpace": {
+            "type": "boolean"
+          },
+          "rampV": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            ]
+          },
+          "rampOffsetV": {
+            "type": "boolean"
+          },
+          "useShapeVelocityDir": {
+            "type": "boolean"
+          },
+          "rgb": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "sizeRandomFlip": {
+            "type": "boolean"
+          },
+          "sizeRandomFlipX": {
+            "type": "boolean"
+          },
+          "rampRangeV": {
+            "type": "number"
+          },
+          "linkIndex": {
+            "type": "integer"
+          },
+          "velocityZ": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "offsetAllowNegZ": {
+            "type": "boolean"
+          },
+          "snapToSurface": {
+            "type": "boolean"
+          },
+          "snapToSurfaceOffset": {
+            "type": "number"
+          },
+          "alignVelocityToSurface": {
+            "type": "boolean"
+          },
+          "useArcLengthSpace": {
+            "type": "boolean"
+          },
+          "delayRange": {
+            "type": "number"
+          },
+          "velocityX": {
+            "type": "number"
+          },
+          "rotation": {
+            "type": "number"
+          },
+          "sizeRangeYY": {
+            "type": "number"
+          },
+          "accelX": {
+            "type": "integer"
+          },
+          "sizeConstantAspect": {
+            "type": "boolean"
+          },
+          "velocityRangeZ": {
+            "type": "number"
+          },
+          "useArmyColor": {
+            "type": "integer"
+          },
+          "allowNegZ": {
+            "type": "boolean"
+          },
+          "panRate": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "startLoop": {
+            "type": "number"
+          },
+          "temp_gravity": {
+            "type": "number"
+          },
+          "papa": {
+            "type": "string"
+          },
+          "sizeRandomFlipY": {
+            "type": "boolean"
+          },
+          "loopStart": {
+            "type": "number"
+          },
+          "accelY": {
+            "type": "integer"
+          },
+          "emissionByDist": {
+            "type": "integer"
+          },
+          "rotationRateX": {
+            "type": "number"
+          },
+          "red": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "green": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "blue": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "inheritedVelocity": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "spec"
+        ]
+      }
+    }
+  },
+  "required": [
+    "emitters"
+  ]
+}

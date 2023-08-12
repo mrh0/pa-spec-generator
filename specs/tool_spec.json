@@ -1,0 +1,234 @@
+{
+  "type": "object",
+  "properties": {
+    "base_spec": {
+      "type": "string"
+    },
+    "construction_demand": {
+      "type": "object",
+      "properties": {
+        "energy": {
+          "type": "integer"
+        },
+        "metal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "energy",
+        "metal"
+      ]
+    },
+    "ammo_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "layer": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "layer",
+              "id"
+            ]
+          }
+        }
+      ]
+    },
+    "ammo_source": {
+      "type": "string"
+    },
+    "rate_of_fire": {
+      "type": "number"
+    },
+    "ammo_capacity": {
+      "type": "integer"
+    },
+    "ammo_demand": {
+      "type": "integer"
+    },
+    "ammo_per_shot": {
+      "type": "integer"
+    },
+    "max_range": {
+      "type": "integer"
+    },
+    "yaw_rate": {
+      "type": "integer"
+    },
+    "pitch_rate": {
+      "type": "integer"
+    },
+    "yaw_range": {
+      "type": "integer"
+    },
+    "pitch_range": {
+      "type": "number"
+    },
+    "auto_attack": {
+      "type": "boolean"
+    },
+    "spread_fire": {
+      "type": "boolean"
+    },
+    "carpet_fire": {
+      "type": "boolean"
+    },
+    "firing_standard_deviation": {
+      "type": "number"
+    },
+    "target_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "died": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec"
+          ]
+        }
+      },
+      "required": [
+        "died"
+      ]
+    },
+    "target_priorities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "idle_aim_delay": {
+      "type": "number"
+    },
+    "firing_arc_yaw": {
+      "type": "integer"
+    },
+    "firing_arc_pitch": {
+      "type": "integer"
+    },
+    "auto_repair": {
+      "type": "boolean"
+    },
+    "auto_reclaim": {
+      "type": "boolean"
+    },
+    "can_only_assist_with_buildable_items": {
+      "type": "boolean"
+    },
+    "reclaim_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "auto_task_type": {
+      "type": "string"
+    },
+    "manual_fire": {
+      "type": "boolean"
+    },
+    "anti_entity_targets_units": {
+      "type": "boolean"
+    },
+    "anti_entity_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_firing_velocity": {
+      "type": "integer"
+    },
+    "min_firing_velocity": {
+      "type": "integer"
+    },
+    "arc_type": {
+      "type": "string"
+    },
+    "physics": {
+      "type": "object",
+      "properties": {
+        "radius": {
+          "type": "integer"
+        },
+        "gravity_scalar": {
+          "type": "integer"
+        },
+        "add_to_spatial_db": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "radius",
+        "gravity_scalar",
+        "add_to_spatial_db"
+      ]
+    },
+    "carpet_wait_for_full_ammo": {
+      "type": "boolean"
+    },
+    "spawn_layers": {
+      "type": "string"
+    },
+    "tool_type": {
+      "type": "string"
+    },
+    "assist_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reclaim_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_destruct": {
+      "type": "boolean"
+    },
+    "start_fully_charged": {
+      "type": "boolean"
+    },
+    "fire_delay": {
+      "type": "number"
+    },
+    "auto_fire_when_charged": {
+      "type": "boolean"
+    },
+    "only_fire_once": {
+      "type": "boolean"
+    },
+    "charge_ammo_when_targeting": {
+      "type": "boolean"
+    },
+    "exclude_unit_types": {
+      "type": "string"
+    }
+  }
+}

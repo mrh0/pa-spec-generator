@@ -1,0 +1,695 @@
+{
+  "type": "object",
+  "properties": {
+    "blend_root": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "aim_bone_root": {
+          "type": "string"
+        },
+        "node_aim_down": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "node_aim_neutral": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "node_aim_up": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "anim_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "anim_name"
+          ]
+        },
+        "child": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "nodes": {
+          "type": "object",
+          "properties": {
+            "being_built": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "anim_name": {
+                  "type": "string"
+                },
+                "looping": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "living": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "node_idle": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "node_walk": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "anim_name"
+                  ]
+                },
+                "entries": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "node": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "anim_name": {
+                            "type": "string"
+                          },
+                          "looping": {
+                            "type": "boolean"
+                          },
+                          "events": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "time": {
+                                  "type": "number"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "parameters": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bone": {
+                                      "type": "string"
+                                    },
+                                    "spec": {
+                                      "type": "string"
+                                    },
+                                    "effect_scale": {
+                                      "type": "integer"
+                                    },
+                                    "bone_offset": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "cue": {
+                                      "type": "string"
+                                    },
+                                    "bone_orient": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "integer"
+                                      }
+                                    },
+                                    "attached": {
+                                      "type": "boolean"
+                                    }
+                                  }
+                                },
+                                "label": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "time",
+                                "type",
+                                "parameters"
+                              ]
+                            }
+                          },
+                          "entries": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "node": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "anim_name": {
+                                      "type": "string"
+                                    },
+                                    "looping": {
+                                      "type": "boolean"
+                                    },
+                                    "events": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "time": {
+                                            "type": "number"
+                                          },
+                                          "type": {
+                                            "type": "string"
+                                          },
+                                          "parameters": {
+                                            "type": "object",
+                                            "properties": {
+                                              "bone": {
+                                                "type": "string"
+                                              },
+                                              "spec": {
+                                                "type": "string"
+                                              },
+                                              "effect_scale": {
+                                                "type": "integer"
+                                              },
+                                              "bone_offset": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "number"
+                                                }
+                                              }
+                                            },
+                                            "required": [
+                                              "bone",
+                                              "spec",
+                                              "effect_scale",
+                                              "bone_offset"
+                                            ]
+                                          },
+                                          "offsetRangeX": {
+                                            "type": "integer"
+                                          }
+                                        },
+                                        "required": [
+                                          "time",
+                                          "type",
+                                          "parameters"
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "anim_name",
+                                    "looping",
+                                    "events"
+                                  ]
+                                },
+                                "transitions": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "transition_forward": {
+                                        "type": "object",
+                                        "properties": {
+                                          "func": {
+                                            "type": "string"
+                                          },
+                                          "target": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "func",
+                                          "target"
+                                        ]
+                                      },
+                                      "transition_reverse": {
+                                        "type": "object",
+                                        "properties": {
+                                          "func": {
+                                            "type": "string"
+                                          },
+                                          "target": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "func",
+                                          "target"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "transition_forward",
+                                      "transition_reverse"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "name",
+                                "node",
+                                "transitions"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      },
+                      "transitions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "transition_forward": {
+                              "type": "object",
+                              "properties": {
+                                "func": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "duration": {
+                                  "type": "number"
+                                },
+                                "speed": {
+                                  "type": "number"
+                                },
+                                "anim_complete": {
+                                  "type": "boolean"
+                                },
+                                "turn_rate": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "func",
+                                "target"
+                              ]
+                            },
+                            "transition_reverse": {
+                              "type": "object",
+                              "properties": {
+                                "func": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "duration": {
+                                  "type": "number"
+                                },
+                                "speed": {
+                                  "type": "number"
+                                },
+                                "turn_rate": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "func",
+                                "target"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "transition_forward",
+                            "transition_reverse"
+                          ]
+                        }
+                      },
+                      "reset": {
+                        "type": "string"
+                      },
+                      "scale_to_move_speed": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name",
+                      "node",
+                      "transitions",
+                      "reset"
+                    ]
+                  }
+                },
+                "anim_name": {
+                  "type": "string"
+                },
+                "looping": {
+                  "type": "boolean"
+                },
+                "node_fly": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "anim_name"
+                  ]
+                },
+                "transition_seek": {
+                  "type": "object",
+                  "properties": {
+                    "func": {
+                      "type": "string"
+                    },
+                    "true_target": {
+                      "type": "string"
+                    },
+                    "false_target": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "func",
+                    "true_target",
+                    "false_target"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "dead": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "anim_name": {
+                  "type": "string"
+                },
+                "entries": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "node": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "anim_name": {
+                            "type": "string"
+                          },
+                          "looping": {
+                            "type": "boolean"
+                          },
+                          "events": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "time": {
+                                  "type": "number"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "parameters": {
+                                  "type": "object",
+                                  "properties": {
+                                    "bone": {
+                                      "type": "string"
+                                    },
+                                    "spec": {
+                                      "type": "string"
+                                    },
+                                    "effect_scale": {
+                                      "type": "number"
+                                    },
+                                    "attached": {
+                                      "type": "boolean"
+                                    },
+                                    "death_effect": {
+                                      "type": "boolean"
+                                    },
+                                    "bone_offset": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "cue": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "label": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "time",
+                                "type",
+                                "parameters"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "anim_name",
+                          "looping"
+                        ]
+                      },
+                      "transitions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "transition_forward": {
+                              "type": "object",
+                              "properties": {
+                                "func": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "func",
+                                "target"
+                              ]
+                            },
+                            "transition_reverse": {
+                              "type": "object",
+                              "properties": {
+                                "func": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "func",
+                                "target"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "transition_forward",
+                            "transition_reverse"
+                          ]
+                        }
+                      },
+                      "reset": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name",
+                      "node",
+                      "transitions",
+                      "reset"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "ghost": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "anim_name": {
+                  "type": "string"
+                },
+                "looping": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "being_built",
+            "living",
+            "dead",
+            "ghost"
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "skeleton_controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "lerp_func": {
+            "type": "string"
+          },
+          "child": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "rotation_bone": {
+                "type": "string"
+              },
+              "rotation_axis": {
+                "type": "string"
+              },
+              "weapon_index": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "type",
+              "rotation_bone"
+            ]
+          },
+          "bone": {
+            "type": "string"
+          },
+          "recoil_dist": {
+            "type": "number"
+          },
+          "restore_time": {
+            "type": "number"
+          },
+          "rotation_bone": {
+            "type": "string"
+          },
+          "rotation_axis": {
+            "type": "string"
+          },
+          "weapon_index": {
+            "type": "integer"
+          },
+          "unit_event": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    }
+  },
+  "required": [
+    "blend_root"
+  ]
+}

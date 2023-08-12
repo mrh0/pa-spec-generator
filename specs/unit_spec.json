@@ -1,0 +1,1519 @@
+{
+  "type": "object",
+  "properties": {
+    "base_spec": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "max_health": {
+      "type": "integer"
+    },
+    "build_metal_cost": {
+      "type": "integer"
+    },
+    "unit_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "command_caps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "acceleration": {
+          "type": "integer"
+        },
+        "brake": {
+          "type": "integer"
+        },
+        "move_speed": {
+          "type": "integer"
+        },
+        "turn_speed": {
+          "type": "integer"
+        },
+        "dodge_radius": {
+          "type": "integer"
+        },
+        "dodge_multiplier": {
+          "type": "integer"
+        },
+        "wobble_factor": {
+          "type": "number"
+        },
+        "wobble_speed": {
+          "type": "number"
+        },
+        "aggressive_distance": {
+          "type": "integer"
+        },
+        "aggressive_Height": {
+          "type": "integer"
+        },
+        "aggressive_behavior": {
+          "type": "string"
+        },
+        "hover_time": {
+          "type": "integer"
+        },
+        "aggressive_height": {
+          "type": "integer"
+        },
+        "vertical_speed": {
+          "type": "integer"
+        },
+        "circle_min_time": {
+          "type": "integer"
+        },
+        "circle_max_time": {
+          "type": "integer"
+        },
+        "bank_factor": {
+          "type": "number"
+        },
+        "inter_planetary_type": {
+          "type": "string"
+        },
+        "ignore_overshoot": {
+          "type": "boolean"
+        },
+        "leash_behavior": {
+          "type": "string"
+        },
+        "leash_distance": {
+          "type": "integer"
+        },
+        "turn_accel": {
+          "type": "integer"
+        },
+        "group_preference": {
+          "type": "string"
+        },
+        "park_stamp": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "type": "string"
+            },
+            "cost": {
+              "type": "integer"
+            },
+            "type_data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "move_type": {
+                    "type": "string"
+                  },
+                  "stamp_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "move_type",
+                  "stamp_type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "shape",
+            "cost",
+            "type_data"
+          ]
+        },
+        "turn_in_place": {
+          "type": "boolean"
+        },
+        "park_stamp_type": {
+          "type": "string"
+        },
+        "park_stamp_cost": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "acceleration",
+        "brake",
+        "move_speed",
+        "turn_speed"
+      ]
+    },
+    "physics": {
+      "type": "object",
+      "properties": {
+        "radius": {
+          "type": "number"
+        },
+        "gravity_scalar": {
+          "type": "number"
+        },
+        "collision_layers": {
+          "type": "string"
+        },
+        "push_sideways": {
+          "type": "boolean"
+        },
+        "allow_pushing": {
+          "type": "boolean"
+        },
+        "air_friction": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "string"
+        },
+        "allow_underground": {
+          "type": "boolean"
+        },
+        "sync_radius_to_extents": {
+          "type": "boolean"
+        },
+        "collide_with_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orient_interp_rate": {
+          "type": "integer"
+        },
+        "ignore_gravity": {
+          "type": "boolean"
+        },
+        "underwater": {
+          "type": "boolean"
+        }
+      }
+    },
+    "recon": {
+      "type": "object",
+      "properties": {
+        "observer": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "layer": {
+                    "type": "string"
+                  },
+                  "channel": {
+                    "type": "string"
+                  },
+                  "shape": {
+                    "type": "string"
+                  },
+                  "radius": {
+                    "type": "integer"
+                  },
+                  "uses_energy": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "layer",
+                  "channel",
+                  "shape",
+                  "radius"
+                ]
+              }
+            }
+          },
+          "required": [
+            "items"
+          ]
+        },
+        "observable": {
+          "type": "object",
+          "properties": {
+            "layer": {
+              "type": "string"
+            },
+            "show_ghost": {
+              "type": "boolean"
+            },
+            "ignore_radar": {
+              "type": "boolean"
+            },
+            "always_visible": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "required": [
+        "observer"
+      ]
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "layer": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              },
+              "animations": {
+                "type": "object",
+                "properties": {
+                  "build_start": {
+                    "type": "string"
+                  },
+                  "build_loop": {
+                    "type": "string"
+                  },
+                  "build_end": {
+                    "type": "string"
+                  },
+                  "idle": {
+                    "type": "string"
+                  },
+                  "build_start_1": {
+                    "type": "string"
+                  },
+                  "build_loop_1": {
+                    "type": "string"
+                  },
+                  "build_end_1": {
+                    "type": "string"
+                  },
+                  "build_start_2": {
+                    "type": "string"
+                  },
+                  "build_loop_2": {
+                    "type": "string"
+                  },
+                  "build_end_2": {
+                    "type": "string"
+                  },
+                  "build_start_3": {
+                    "type": "string"
+                  },
+                  "build_loop_3": {
+                    "type": "string"
+                  },
+                  "build_end_3": {
+                    "type": "string"
+                  },
+                  "aim_up": {
+                    "type": "string"
+                  },
+                  "deploy": {
+                    "type": "string"
+                  },
+                  "fire_start": {
+                    "type": "string"
+                  },
+                  "fire_loop": {
+                    "type": "string"
+                  },
+                  "fire_end": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "string"
+                  },
+                  "loop": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  }
+                }
+              },
+              "animtree": {
+                "type": "string"
+              },
+              "skirt_decal": {
+                "type": "string"
+              },
+              "arrows": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "filename"
+            ]
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "arrows": {
+              "type": "integer"
+            },
+            "animations": {
+              "type": "object",
+              "properties": {
+                "fly": {
+                  "type": "string"
+                },
+                "idle": {
+                  "type": "string"
+                },
+                "build": {
+                  "type": "string"
+                },
+                "deploy": {
+                  "type": "string"
+                },
+                "closed": {
+                  "type": "string"
+                },
+                "aim_up": {
+                  "type": "string"
+                },
+                "aim_down": {
+                  "type": "string"
+                },
+                "building": {
+                  "type": "string"
+                },
+                "hover": {
+                  "type": "string"
+                },
+                "death": {
+                  "type": "string"
+                },
+                "dead": {
+                  "type": "string"
+                },
+                "run": {
+                  "type": "string"
+                },
+                "death01": {
+                  "type": "string"
+                },
+                "walk": {
+                  "type": "string"
+                },
+                "build_start": {
+                  "type": "string"
+                },
+                "build_loop": {
+                  "type": "string"
+                },
+                "build_end": {
+                  "type": "string"
+                },
+                "aimUp": {
+                  "type": "string"
+                },
+                "aimDown": {
+                  "type": "string"
+                },
+                "walk_stop": {
+                  "type": "string"
+                },
+                "fire": {
+                  "type": "string"
+                },
+                "start": {
+                  "type": "string"
+                },
+                "loop": {
+                  "type": "string"
+                },
+                "end": {
+                  "type": "string"
+                },
+                "drive": {
+                  "type": "string"
+                },
+                "turn_left": {
+                  "type": "string"
+                },
+                "turn_right": {
+                  "type": "string"
+                },
+                "attack": {
+                  "type": "string"
+                },
+                "open": {
+                  "type": "string"
+                },
+                "flying": {
+                  "type": "string"
+                },
+                "stop": {
+                  "type": "string"
+                }
+              }
+            },
+            "animtree": {
+              "type": "string"
+            },
+            "walk_speed": {
+              "type": "number"
+            },
+            "skirt_decal": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ]
+        }
+      ]
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "build_complete": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "fired": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "integer"
+            }
+          }
+        },
+        "died": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "number"
+            }
+          }
+        },
+        "fired0": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "child_attached": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "child_detached": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "teleported": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec"
+          ]
+        },
+        "destroyed": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "fired1": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "enabled": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec"
+          ]
+        },
+        "disabled": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec"
+          ]
+        },
+        "fired2": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "audio_cue"
+          ]
+        },
+        "fired3": {
+          "type": "object",
+          "properties": {
+            "audio_cue": {
+              "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "audio_cue",
+            "effect_spec"
+          ]
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "properties": {
+        "loops": {
+          "type": "object",
+          "properties": {
+            "move": {
+              "type": "object",
+              "properties": {
+                "cue": {
+                  "type": "string"
+                },
+                "flag": {
+                  "type": "string"
+                },
+                "should_start_func": {
+                  "type": "string"
+                },
+                "should_stop_func": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "cue",
+                "flag",
+                "should_start_func",
+                "should_stop_func"
+              ]
+            },
+            "build": {
+              "type": "object",
+              "properties": {
+                "cue": {
+                  "type": "string"
+                },
+                "flag": {
+                  "type": "string"
+                },
+                "should_start_func": {
+                  "type": "string"
+                },
+                "should_stop_func": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "cue",
+                "flag",
+                "should_start_func",
+                "should_stop_func"
+              ]
+            },
+            "enabled": {
+              "type": "object",
+              "properties": {
+                "cue": {
+                  "type": "string"
+                },
+                "flag": {
+                  "type": "string"
+                },
+                "should_start_func": {
+                  "type": "string"
+                },
+                "should_stop_func": {
+                  "type": "string"
+                },
+                "interplanetary": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "cue",
+                "flag",
+                "should_start_func",
+                "should_stop_func"
+              ]
+            }
+          }
+        },
+        "selection_response": {
+          "type": "object",
+          "properties": {
+            "cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cue"
+          ]
+        },
+        "command_response": {
+          "type": "object",
+          "properties": {
+            "cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cue"
+          ]
+        },
+        "sing_selection_response": {
+          "type": "object",
+          "properties": {
+            "cue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cue"
+          ]
+        }
+      }
+    },
+    "selection_icon": {
+      "type": "object",
+      "properties": {
+        "diameter": {
+          "type": "number"
+        },
+        "vertical_offset": {
+          "type": "number"
+        }
+      }
+    },
+    "TEMP_texelinfo": {
+      "type": "number"
+    },
+    "mesh_bounds": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "unit_name": {
+      "type": "string"
+    },
+    "atrophy_rate": {
+      "type": "number"
+    },
+    "atrophy_cool_down": {
+      "type": "number"
+    },
+    "buildable_types": {
+      "type": "string"
+    },
+    "rolloff_dirs": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "spawn_layers": {
+      "type": "string"
+    },
+    "wait_to_rolloff_time": {
+      "type": "integer"
+    },
+    "factory_cooldown_time": {
+      "type": "number"
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "spec_id": {
+            "type": "string"
+          },
+          "aim_bone": {
+            "type": "string"
+          },
+          "muzzle_bone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "projectiles_per_fire": {
+            "type": "integer"
+          },
+          "record_index": {
+            "type": "integer"
+          },
+          "fire_event": {
+            "type": "string"
+          },
+          "show_range": {
+            "type": "boolean"
+          },
+          "primary_weapon": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "spec_id",
+          "aim_bone"
+        ]
+      }
+    },
+    "fx_offsets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "bone": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "orientation": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "filename"
+        ]
+      }
+    },
+    "headlights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gobo": {
+            "type": "string"
+          },
+          "offset": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "orientation": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "near_width": {
+            "type": "number"
+          },
+          "near_height": {
+            "type": "number"
+          },
+          "near_distance": {
+            "type": "number"
+          },
+          "far_distance": {
+            "type": "integer"
+          },
+          "color": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "intensity": {
+            "type": "number"
+          },
+          "bone": {
+            "type": "string"
+          },
+          "shadow_resolution": {
+            "type": "integer"
+          },
+          "debug": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "gobo",
+          "offset",
+          "orientation",
+          "near_width",
+          "near_height",
+          "near_distance",
+          "far_distance",
+          "color"
+        ]
+      }
+    },
+    "lamps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "radius": {
+            "type": "number"
+          },
+          "color": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "intensity": {
+            "type": "number"
+          },
+          "bone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "offset",
+          "radius",
+          "color",
+          "intensity"
+        ]
+      }
+    },
+    "placement_size": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "area_build_separation": {
+      "type": "number"
+    },
+    "death": {
+      "type": "object",
+      "properties": {
+        "decals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "decals"
+      ]
+    },
+    "strategic_icon_priority": {
+      "type": "integer"
+    },
+    "armor_type": {
+      "type": "string"
+    },
+    "guard_radius": {
+      "type": "integer"
+    },
+    "wreckage_health_frac": {
+      "type": "number"
+    },
+    "wreckage": {
+      "type": "object",
+      "properties": {
+        "remove_ground_cost_stamp": {
+          "type": "boolean"
+        },
+        "collision": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "remove_ground_cost_stamp",
+        "collision"
+      ]
+    },
+    "guard_layer": {
+      "type": "string"
+    },
+    "maintain_priority_target": {
+      "type": "boolean"
+    },
+    "death_weapon": {
+      "type": "object",
+      "properties": {
+        "air_ammo_spec": {
+          "type": "string"
+        },
+        "ground_ammo_spec": {
+          "type": "string"
+        }
+      }
+    },
+    "attachable": {
+      "type": "object",
+      "properties": {
+        "offsets": {
+          "type": "object",
+          "properties": {
+            "root": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "head": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "root"
+          ]
+        }
+      },
+      "required": [
+        "offsets"
+      ]
+    },
+    "transportable": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "size"
+      ]
+    },
+    "system_velocity_multiplier": {
+      "type": "integer"
+    },
+    "gravwell_velocity_multiplier": {
+      "type": "integer"
+    },
+    "usable": {
+      "type": "boolean"
+    },
+    "production": {
+      "type": "object",
+      "properties": {
+        "energy": {
+          "type": "integer"
+        },
+        "metal": {
+          "type": "integer"
+        }
+      }
+    },
+    "stop_clears_nearby_targets": {
+      "type": "boolean"
+    },
+    "has_death_effects": {
+      "type": "boolean"
+    },
+    "wreckage_mesh_bounds": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "useable": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "range": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "range"
+      ]
+    },
+    "transporter": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "type": "integer"
+        },
+        "transportable_unit_types": {
+          "type": "string"
+        },
+        "transporter_attach_bone": {
+          "type": "string"
+        },
+        "transportable_attach_offset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capacity",
+        "transportable_unit_types",
+        "transporter_attach_bone",
+        "transportable_attach_offset"
+      ]
+    },
+    "nearby_target_tick_update_interval": {
+      "type": "integer"
+    },
+    "alt_area_build_type": {
+      "type": "string"
+    },
+    "alt_area_build_separation": {
+      "type": "number"
+    },
+    "area_build_type": {
+      "type": "string"
+    },
+    "buildable_projectiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "factory": {
+      "type": "object",
+      "properties": {
+        "store_units": {
+          "type": "boolean"
+        },
+        "spawn_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "initial_build_spec": {
+          "type": "string"
+        },
+        "default_build_stance": {
+          "type": "string"
+        },
+        "deploy_projectile": {
+          "type": "string"
+        },
+        "pass_on_orders": {
+          "type": "boolean"
+        },
+        "hide_deploy_projectile": {
+          "type": "boolean"
+        },
+        "hide_stored_units": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "spawn_points"
+      ]
+    },
+    "alt_area_build_pattern": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "lod_hide_pixelsize": {
+      "type": "integer"
+    },
+    "teleportable": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "cost_stamp": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "type": "string"
+            },
+            "type_data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "move_type": {
+                    "type": "string"
+                  },
+                  "stamp_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "move_type",
+                  "stamp_type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "shape",
+            "type_data"
+          ]
+        }
+      },
+      "required": [
+        "cost_stamp"
+      ]
+    },
+    "show_in_orbital_layer": {
+      "type": "boolean"
+    },
+    "feature_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "force_snap_to_feature_orientation": {
+      "type": "boolean"
+    },
+    "feature_snap_ignores_pathability": {
+      "type": "boolean"
+    },
+    "activates_control_point": {
+      "type": "boolean"
+    },
+    "storage": {
+      "type": "object",
+      "properties": {
+        "energy": {
+          "type": "integer"
+        },
+        "metal": {
+          "type": "integer"
+        }
+      }
+    },
+    "alt_area_max_radius": {
+      "type": "integer"
+    },
+    "energy_efficiency_requirement": {
+      "type": "number"
+    },
+    "area_build_pattern": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "area_max_radius": {
+      "type": "integer"
+    },
+    "consumption": {
+      "type": "object",
+      "properties": {
+        "energy": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "energy"
+      ]
+    },
+    "replaceable_units": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "icon_vertical_offset": {
+      "type": "integer"
+    },
+    "scrolling_uv": {
+      "type": "object",
+      "properties": {
+        "scroll_rate": {
+          "type": "number"
+        },
+        "uv_split": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "scroll_rate",
+        "uv_split"
+      ]
+    },
+    "influence_radius": {
+      "type": "integer"
+    },
+    "flip_drag_orientation": {
+      "type": "boolean"
+    },
+    "orders": {
+      "type": "object",
+      "properties": {
+        "handler_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "handler_type"
+      ]
+    },
+    "teleporter": {
+      "type": "object",
+      "properties": {
+        "energy_demand": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "spawn_radius": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "energy_demand"
+      ]
+    },
+    "attack_range_frac": {
+      "type": "number"
+    },
+    "enable_orbital_shell": {
+      "type": "boolean"
+    },
+    "planetary_arrival_cooldown_time": {
+      "type": "integer"
+    },
+    "orbital_offset": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "view_type": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "effect": {
+            "type": "string"
+          },
+          "texture": {
+            "type": "string"
+          },
+          "use_team_color": {
+            "type": "boolean"
+          },
+          "color_at_ground": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "color_at_unit": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "uv_factor": {
+            "type": "integer"
+          },
+          "scale": {
+            "type": "integer"
+          },
+          "offset_from_unit": {
+            "type": "integer"
+          },
+          "offset_from_ground": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "view_type",
+          "enabled",
+          "effect",
+          "texture",
+          "use_team_color",
+          "color_at_ground",
+          "color_at_unit",
+          "uv_factor",
+          "scale",
+          "offset_from_unit",
+          "offset_from_ground"
+        ]
+      }
+    },
+    "build_restrictions": {
+      "type": "string"
+    },
+    "orbital_thruster": {
+      "type": "object",
+      "properties": {
+        "power": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "power"
+      ]
+    },
+    "localised_display_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "display_name",
+    "description",
+    "unit_types",
+    "events"
+  ]
+}

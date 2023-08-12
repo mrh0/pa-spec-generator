@@ -4,9 +4,9 @@ import fs from 'fs';
 const pfs = fs.promises;
 
 // Set path to PA instllation folder:
-const paPath = "W:/Games/SteamLibrary/steamapps/common/Planetary Annihilation Titans"
+const paPath = process.argv[2] || "W:/Games/SteamLibrary/steamapps/common/Planetary Annihilation Titans"
 // Set output path:
-const outputPath = "./out"
+const outputPath = "./specs"
 
 const rootPath = path.join(paPath, '/media/pa_ex1');
 
@@ -56,21 +56,13 @@ const main = async () => {
         collectDirectory('units/sea', unitSpecFileFunc)
     ]);
 
-    const toolSpecFileFunc = (dir, file) => file.includes('tool');
+    const toolSpecFileFunc = (dir, file) => file.includes('tool') || file.includes('build_arm');
     await buildSchema('tool_spec', [
         collectDirectory('units/air', toolSpecFileFunc),
         collectDirectory('units/land', toolSpecFileFunc),
         collectDirectory('units/orbital', toolSpecFileFunc),
         collectDirectory('units/sea', toolSpecFileFunc),
         collectDirectory('tools', allFunc)
-    ]);
-
-    const buildArmSpecFileFunc = (dir, file) => file.includes('build_arm');
-    await buildSchema('build_arm_spec', [
-        collectDirectory('units/air', buildArmSpecFileFunc),
-        collectDirectory('units/land', buildArmSpecFileFunc),
-        collectDirectory('units/orbital', buildArmSpecFileFunc),
-        collectDirectory('units/sea', buildArmSpecFileFunc)
     ]);
 
     const ammoSpecFileFunc = (dir, file) => file.includes('ammo');
