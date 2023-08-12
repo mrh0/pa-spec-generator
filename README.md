@@ -1,15 +1,17 @@
 # Generates JSON-schemas for Planetery Annihilation: Titans spec files.
 
-## Supported spec types
-- ai builds
-- ammo
-- anim trees
-- build arm
-- .pfx
-- tool
-- unit
+This Node.js script generates infered JSON-schemas beased on the files in the PA `/media/pa_ex1` directory
 
-Spec files are put in the /specs folder.
+## Supported spec types
+- AI builds
+- Ammo
+- Animation Trees
+- Build arms
+- .pfx files
+- Tools
+- Units / Structures
+
+The generated spec files are put in the [/specs](https://github.com/mrh0/pa-spec-generator/tree/main/specs) folder.
 
 ## Usage
 
