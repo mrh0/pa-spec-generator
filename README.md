@@ -19,7 +19,7 @@ The generated spec files are put in the [/specs](https://github.com/mrh0/pa-spec
 npm start <path to Planetary Annihilation Titans>
 ```
 ### Use schemas
-Visual Studio: Code supports JSON-schema validation by adding one of the following property with a link to the schema in the JSON file you are working in.
+Visual Studio: Code supports JSON-schema validation by adding one of the following `$schema` properties with a link to the schema in the JSON file you are working in.
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/ai_builds_spec.json",
@@ -27,6 +27,6 @@ Visual Studio: Code supports JSON-schema validation by adding one of the followi
   "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/anim_tree_spec.json",
   "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/pfx_spec.json",
   "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/tool_spec.json",
-  "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/unit_spec.json"
+  "$schema": "https://raw.githubusercontent.com/mrh0/pa-spec-generator/main/specs/unit_spec.json",
 }
 ```
