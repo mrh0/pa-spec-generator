@@ -8,13 +8,15 @@ const paPath = process.argv[2] || "W:/Games/SteamLibrary/steamapps/common/Planet
 // Set output path:
 const outputPath = "./specs"
 
-const rootPath = path.join(paPath, '/media/pa_ex1');
+const rootPath = path.join(paPath, '/media');
 
 const collectDirectory = async (dirPath, nameFunc, ext = '.json') => {
     const unitsPath = path.join(rootPath, dirPath)
     const unitsDir = await pfs.readdir(unitsPath);
     const allUnitFiles = [];
-    await Promise.all(unitsDir.map(async (dirName) => {        
+    await Promise.all(unitsDir.map(async (dirName) => {  
+        const stat = await pfs.lstat(path.join(unitsPath, dirName));
+        if(!stat.isDirectory()) return;
         const unitDir = await pfs.readdir(path.join(unitsPath, dirName));
         unitDir.forEach((fileName) => {
             if (path.extname(fileName) !== ext) return;
@@ -50,44 +52,69 @@ const main = async () => {
 
     const unitSpecFileFunc =  (dir, file) => file === `${dir}.json`;
     await buildSchema('unit_spec', [
-        collectDirectory('units/air', unitSpecFileFunc),
-        collectDirectory('units/land', unitSpecFileFunc),
-        collectDirectory('units/orbital', unitSpecFileFunc),
-        collectDirectory('units/sea', unitSpecFileFunc)
+        collectDirectory('pa_ex1/units/air', unitSpecFileFunc),
+        collectDirectory('pa_ex1/units/land', unitSpecFileFunc),
+        collectDirectory('pa_ex1/units/orbital', unitSpecFileFunc),
+        collectDirectory('pa_ex1/units/sea', unitSpecFileFunc),
+
+        collectDirectory('pa/units/air', unitSpecFileFunc),
+        collectDirectory('pa/units/land', unitSpecFileFunc),
+        collectDirectory('pa/units/orbital', unitSpecFileFunc),
+        collectDirectory('pa/units/sea', unitSpecFileFunc)
     ]);
 
     const toolSpecFileFunc = (dir, file) => file.includes('tool') || file.includes('build_arm');
     await buildSchema('tool_spec', [
-        collectDirectory('units/air', toolSpecFileFunc),
-        collectDirectory('units/land', toolSpecFileFunc),
-        collectDirectory('units/orbital', toolSpecFileFunc),
-        collectDirectory('units/sea', toolSpecFileFunc),
-        collectDirectory('tools', allFunc)
+        collectDirectory('pa_ex1/units/air', toolSpecFileFunc),
+        collectDirectory('pa_ex1/units/land', toolSpecFileFunc),
+        collectDirectory('pa_ex1/units/orbital', toolSpecFileFunc),
+        collectDirectory('pa_ex1/units/sea', toolSpecFileFunc),
+        collectDirectory('pa_ex1/tools', allFunc),
+
+        collectDirectory('pa/units/air', toolSpecFileFunc),
+        collectDirectory('pa/units/land', toolSpecFileFunc),
+        collectDirectory('pa/units/orbital', toolSpecFileFunc),
+        collectDirectory('pa/units/sea', toolSpecFileFunc),
+        collectDirectory('pa/tools', allFunc)
     ]);
 
     const ammoSpecFileFunc = (dir, file) => file.includes('ammo');
     await buildSchema('ammo_spec', [
-        collectDirectory('units/air', ammoSpecFileFunc),
-        collectDirectory('units/land', ammoSpecFileFunc),
-        collectDirectory('units/orbital', ammoSpecFileFunc),
-        collectDirectory('units/sea', ammoSpecFileFunc),
-        collectDirectory('ammo', allFunc)
+        collectDirectory('pa_ex1/units/air', ammoSpecFileFunc),
+        collectDirectory('pa_ex1/units/land', ammoSpecFileFunc),
+        collectDirectory('pa_ex1/units/orbital', ammoSpecFileFunc),
+        collectDirectory('pa_ex1/units/sea', ammoSpecFileFunc),
+        collectDirectory('pa_ex1/ammo', allFunc),
+
+        collectDirectory('pa/units/air', ammoSpecFileFunc),
+        collectDirectory('pa/units/land', ammoSpecFileFunc),
+        collectDirectory('pa/units/orbital', ammoSpecFileFunc),
+        collectDirectory('pa/units/sea', ammoSpecFileFunc),
+        collectDirectory('pa/ammo', allFunc)
     ]);
 
     await buildSchema('pfx_spec', [
-        collectDirectory('units/air', allFunc, '.pfx'),
-        collectDirectory('units/land', allFunc, '.pfx'),
-        collectDirectory('units/orbital', allFunc, '.pfx'),
-        collectDirectory('units/sea', allFunc, '.pfx'),
-        collectDirectory('effects', allFunc, '.pfx')
+        collectDirectory('pa_ex1/units/air', allFunc, '.pfx'),
+        collectDirectory('pa_ex1/units/land', allFunc, '.pfx'),
+        collectDirectory('pa_ex1/units/orbital', allFunc, '.pfx'),
+        collectDirectory('pa_ex1/units/sea', allFunc, '.pfx'),
+        collectDirectory('pa_ex1/effects', allFunc, '.pfx'),
+
+        collectDirectory('pa/units/air', allFunc, '.pfx'),
+        collectDirectory('pa/units/land', allFunc, '.pfx'),
+        collectDirectory('pa/units/orbital', allFunc, '.pfx'),
+        collectDirectory('pa/units/sea', allFunc, '.pfx'),
+        collectDirectory('pa/effects', allFunc, '.pfx')
     ]);
 
     await buildSchema('anim_tree_spec', [
-        collectDirectory('anim', (dir, file) => dir === 'anim_trees')
+        collectDirectory('pa_ex1/anim', (dir, file) => dir === 'anim_trees'),
+        collectDirectory('pa/anim', (dir, file) => dir === 'anim_trees')
     ]);
 
     await buildSchema('ai_builds_spec', [
-        collectDirectory('ai', (dir, file) => dir.includes('builds'))
+        collectDirectory('pa_ex1/ai', (dir, file) => dir.includes('builds')),
+        collectDirectory('pa/ai', (dir, file) => dir.includes('builds'))
     ]);
 
     console.timeEnd('Done');

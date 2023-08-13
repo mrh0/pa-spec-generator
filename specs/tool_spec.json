@@ -50,6 +50,9 @@
     "rate_of_fire": {
       "type": "number"
     },
+    "max_range": {
+      "type": "integer"
+    },
     "ammo_capacity": {
       "type": "integer"
     },
@@ -57,9 +60,6 @@
       "type": "integer"
     },
     "ammo_per_shot": {
-      "type": "integer"
-    },
-    "max_range": {
       "type": "integer"
     },
     "yaw_rate": {
@@ -92,6 +92,12 @@
         "type": "string"
       }
     },
+    "target_priorities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "events": {
       "type": "object",
       "properties": {
@@ -114,12 +120,6 @@
       "required": [
         "died"
       ]
-    },
-    "target_priorities": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
     },
     "idle_aim_delay": {
       "type": "number"
@@ -229,6 +229,57 @@
     },
     "exclude_unit_types": {
       "type": "string"
+    },
+    "no_busy_auto_attack": {
+      "type": "boolean"
+    },
+    "lifetime": {
+      "type": "integer"
+    },
+    "force_fire_from_muzzle": {
+      "type": "boolean"
+    },
+    "default_firing_pitch": {
+      "type": "integer"
+    },
+    "flight_type": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ignores_gravity": {
+            "type": "boolean"
+          },
+          "ignores_LOS": {
+            "type": "boolean"
+          },
+          "stage_duration": {
+            "type": "integer"
+          },
+          "stage_turn_rate": {
+            "type": "integer"
+          },
+          "rotates_to_velocity": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ignores_gravity",
+          "ignores_LOS",
+          "stage_duration",
+          "stage_turn_rate",
+          "rotates_to_velocity"
+        ]
+      }
+    },
+    "height_range": {
+      "type": "integer"
+    },
+    "range_height": {
+      "type": "integer"
     }
   }
 }

@@ -4,6 +4,9 @@
     "base_spec": {
       "type": "string"
     },
+    "unit_name": {
+      "type": "string"
+    },
     "display_name": {
       "type": "string"
     },
@@ -16,6 +19,33 @@
     "build_metal_cost": {
       "type": "integer"
     },
+    "atrophy_rate": {
+      "type": "number"
+    },
+    "atrophy_cool_down": {
+      "type": "number"
+    },
+    "buildable_types": {
+      "type": "string"
+    },
+    "rolloff_dirs": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "spawn_layers": {
+      "type": "string"
+    },
+    "wait_to_rolloff_time": {
+      "type": "number"
+    },
+    "factory_cooldown_time": {
+      "type": "number"
+    },
     "unit_types": {
       "type": "array",
       "items": {
@@ -26,183 +56,6 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
-    },
-    "navigation": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "acceleration": {
-          "type": "integer"
-        },
-        "brake": {
-          "type": "integer"
-        },
-        "move_speed": {
-          "type": "integer"
-        },
-        "turn_speed": {
-          "type": "integer"
-        },
-        "dodge_radius": {
-          "type": "integer"
-        },
-        "dodge_multiplier": {
-          "type": "integer"
-        },
-        "wobble_factor": {
-          "type": "number"
-        },
-        "wobble_speed": {
-          "type": "number"
-        },
-        "aggressive_distance": {
-          "type": "integer"
-        },
-        "aggressive_Height": {
-          "type": "integer"
-        },
-        "aggressive_behavior": {
-          "type": "string"
-        },
-        "hover_time": {
-          "type": "integer"
-        },
-        "aggressive_height": {
-          "type": "integer"
-        },
-        "vertical_speed": {
-          "type": "integer"
-        },
-        "circle_min_time": {
-          "type": "integer"
-        },
-        "circle_max_time": {
-          "type": "integer"
-        },
-        "bank_factor": {
-          "type": "number"
-        },
-        "inter_planetary_type": {
-          "type": "string"
-        },
-        "ignore_overshoot": {
-          "type": "boolean"
-        },
-        "leash_behavior": {
-          "type": "string"
-        },
-        "leash_distance": {
-          "type": "integer"
-        },
-        "turn_accel": {
-          "type": "integer"
-        },
-        "group_preference": {
-          "type": "string"
-        },
-        "park_stamp": {
-          "type": "object",
-          "properties": {
-            "shape": {
-              "type": "string"
-            },
-            "cost": {
-              "type": "integer"
-            },
-            "type_data": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "move_type": {
-                    "type": "string"
-                  },
-                  "stamp_type": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "move_type",
-                  "stamp_type"
-                ]
-              }
-            }
-          },
-          "required": [
-            "shape",
-            "cost",
-            "type_data"
-          ]
-        },
-        "turn_in_place": {
-          "type": "boolean"
-        },
-        "park_stamp_type": {
-          "type": "string"
-        },
-        "park_stamp_cost": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "type",
-        "acceleration",
-        "brake",
-        "move_speed",
-        "turn_speed"
-      ]
-    },
-    "physics": {
-      "type": "object",
-      "properties": {
-        "radius": {
-          "type": "number"
-        },
-        "gravity_scalar": {
-          "type": "number"
-        },
-        "collision_layers": {
-          "type": "string"
-        },
-        "push_sideways": {
-          "type": "boolean"
-        },
-        "allow_pushing": {
-          "type": "boolean"
-        },
-        "air_friction": {
-          "type": "number"
-        },
-        "type": {
-          "type": "string"
-        },
-        "shape": {
-          "type": "string"
-        },
-        "allow_underground": {
-          "type": "boolean"
-        },
-        "sync_radius_to_extents": {
-          "type": "boolean"
-        },
-        "collide_with_types": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "orient_interp_rate": {
-          "type": "integer"
-        },
-        "ignore_gravity": {
-          "type": "boolean"
-        },
-        "underwater": {
-          "type": "boolean"
-        }
       }
     },
     "recon": {
@@ -372,6 +225,9 @@
             "arrows": {
               "type": "integer"
             },
+            "animtree": {
+              "type": "string"
+            },
             "animations": {
               "type": "object",
               "properties": {
@@ -470,9 +326,6 @@
                 }
               }
             },
-            "animtree": {
-              "type": "string"
-            },
             "walk_speed": {
               "type": "number"
             },
@@ -486,9 +339,69 @@
         }
       ]
     },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "spec_id": {
+            "type": "string"
+          },
+          "aim_bone": {
+            "type": "string"
+          },
+          "muzzle_bone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "projectiles_per_fire": {
+            "type": "integer"
+          },
+          "record_index": {
+            "type": "integer"
+          },
+          "fire_event": {
+            "type": "string"
+          },
+          "show_range": {
+            "type": "boolean"
+          },
+          "primary_weapon": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "spec_id",
+          "aim_bone"
+        ]
+      }
+    },
     "events": {
       "type": "object",
       "properties": {
+        "died": {
+          "type": "object",
+          "properties": {
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "number"
+            },
+            "audio_cue": {
+              "type": "string"
+            }
+          }
+        },
         "build_complete": {
           "type": "object",
           "properties": {
@@ -511,20 +424,6 @@
             },
             "effect_scale": {
               "type": "integer"
-            }
-          }
-        },
-        "died": {
-          "type": "object",
-          "properties": {
-            "audio_cue": {
-              "type": "string"
-            },
-            "effect_spec": {
-              "type": "string"
-            },
-            "effect_scale": {
-              "type": "number"
             }
           }
         },
@@ -683,7 +582,7 @@
         "loops": {
           "type": "object",
           "properties": {
-            "move": {
+            "build": {
               "type": "object",
               "properties": {
                 "cue": {
@@ -706,7 +605,7 @@
                 "should_stop_func"
               ]
             },
-            "build": {
+            "move": {
               "type": "object",
               "properties": {
                 "cue": {
@@ -762,6 +661,12 @@
           "properties": {
             "cue": {
               "type": "string"
+            },
+            "effect_spec": {
+              "type": "string"
+            },
+            "effect_scale": {
+              "type": "integer"
             }
           },
           "required": [
@@ -790,102 +695,6 @@
             "cue"
           ]
         }
-      }
-    },
-    "selection_icon": {
-      "type": "object",
-      "properties": {
-        "diameter": {
-          "type": "number"
-        },
-        "vertical_offset": {
-          "type": "number"
-        }
-      }
-    },
-    "TEMP_texelinfo": {
-      "type": "number"
-    },
-    "mesh_bounds": {
-      "type": "array",
-      "items": {
-        "type": "number"
-      }
-    },
-    "unit_name": {
-      "type": "string"
-    },
-    "atrophy_rate": {
-      "type": "number"
-    },
-    "atrophy_cool_down": {
-      "type": "number"
-    },
-    "buildable_types": {
-      "type": "string"
-    },
-    "rolloff_dirs": {
-      "type": "array",
-      "items": {
-        "type": "array",
-        "items": {
-          "type": "integer"
-        }
-      }
-    },
-    "spawn_layers": {
-      "type": "string"
-    },
-    "wait_to_rolloff_time": {
-      "type": "integer"
-    },
-    "factory_cooldown_time": {
-      "type": "number"
-    },
-    "tools": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "spec_id": {
-            "type": "string"
-          },
-          "aim_bone": {
-            "type": "string"
-          },
-          "muzzle_bone": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          },
-          "projectiles_per_fire": {
-            "type": "integer"
-          },
-          "record_index": {
-            "type": "integer"
-          },
-          "fire_event": {
-            "type": "string"
-          },
-          "show_range": {
-            "type": "boolean"
-          },
-          "primary_weapon": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "spec_id",
-          "aim_bone"
-        ]
       }
     },
     "fx_offsets": {
@@ -1019,6 +828,23 @@
         ]
       }
     },
+    "selection_icon": {
+      "type": "object",
+      "properties": {
+        "diameter": {
+          "type": "number"
+        },
+        "vertical_offset": {
+          "type": "number"
+        }
+      }
+    },
+    "mesh_bounds": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
     "placement_size": {
       "type": "array",
       "items": {
@@ -1027,6 +853,186 @@
     },
     "area_build_separation": {
       "type": "number"
+    },
+    "TEMP_texelinfo": {
+      "type": "number"
+    },
+    "physics": {
+      "type": "object",
+      "properties": {
+        "collision_layers": {
+          "type": "string"
+        },
+        "radius": {
+          "type": "number"
+        },
+        "gravity_scalar": {
+          "type": "number"
+        },
+        "push_sideways": {
+          "type": "boolean"
+        },
+        "allow_pushing": {
+          "type": "boolean"
+        },
+        "air_friction": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "string"
+        },
+        "allow_underground": {
+          "type": "boolean"
+        },
+        "sync_radius_to_extents": {
+          "type": "boolean"
+        },
+        "collide_with_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orient_interp_rate": {
+          "type": "integer"
+        },
+        "ignore_gravity": {
+          "type": "boolean"
+        },
+        "underwater": {
+          "type": "boolean"
+        }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "acceleration": {
+          "type": "integer"
+        },
+        "brake": {
+          "type": "integer"
+        },
+        "move_speed": {
+          "type": "integer"
+        },
+        "turn_speed": {
+          "type": "integer"
+        },
+        "dodge_radius": {
+          "type": "integer"
+        },
+        "dodge_multiplier": {
+          "type": "integer"
+        },
+        "wobble_factor": {
+          "type": "number"
+        },
+        "wobble_speed": {
+          "type": "number"
+        },
+        "aggressive_distance": {
+          "type": "integer"
+        },
+        "aggressive_Height": {
+          "type": "integer"
+        },
+        "aggressive_behavior": {
+          "type": "string"
+        },
+        "hover_time": {
+          "type": "integer"
+        },
+        "aggressive_height": {
+          "type": "integer"
+        },
+        "vertical_speed": {
+          "type": "integer"
+        },
+        "circle_min_time": {
+          "type": "integer"
+        },
+        "circle_max_time": {
+          "type": "integer"
+        },
+        "bank_factor": {
+          "type": "number"
+        },
+        "inter_planetary_type": {
+          "type": "string"
+        },
+        "ignore_overshoot": {
+          "type": "boolean"
+        },
+        "leash_behavior": {
+          "type": "string"
+        },
+        "leash_distance": {
+          "type": "integer"
+        },
+        "turn_accel": {
+          "type": "integer"
+        },
+        "group_preference": {
+          "type": "string"
+        },
+        "park_stamp": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "type": "string"
+            },
+            "cost": {
+              "type": "integer"
+            },
+            "type_data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "move_type": {
+                    "type": "string"
+                  },
+                  "stamp_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "move_type",
+                  "stamp_type"
+                ]
+              }
+            }
+          },
+          "required": [
+            "shape",
+            "cost",
+            "type_data"
+          ]
+        },
+        "turn_in_place": {
+          "type": "boolean"
+        },
+        "park_stamp_type": {
+          "type": "string"
+        },
+        "park_stamp_cost": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "acceleration",
+        "brake",
+        "move_speed",
+        "turn_speed"
+      ]
     },
     "death": {
       "type": "object",
@@ -1078,17 +1084,6 @@
     "maintain_priority_target": {
       "type": "boolean"
     },
-    "death_weapon": {
-      "type": "object",
-      "properties": {
-        "air_ammo_spec": {
-          "type": "string"
-        },
-        "ground_ammo_spec": {
-          "type": "string"
-        }
-      }
-    },
     "attachable": {
       "type": "object",
       "properties": {
@@ -1128,11 +1123,25 @@
         "size"
       ]
     },
+    "death_weapon": {
+      "type": "object",
+      "properties": {
+        "air_ammo_spec": {
+          "type": "string"
+        },
+        "ground_ammo_spec": {
+          "type": "string"
+        }
+      }
+    },
     "system_velocity_multiplier": {
       "type": "integer"
     },
     "gravwell_velocity_multiplier": {
       "type": "integer"
+    },
+    "stop_clears_nearby_targets": {
+      "type": "boolean"
     },
     "usable": {
       "type": "boolean"
@@ -1147,9 +1156,6 @@
           "type": "integer"
         }
       }
-    },
-    "stop_clears_nearby_targets": {
-      "type": "boolean"
     },
     "has_death_effects": {
       "type": "boolean"
@@ -1392,6 +1398,9 @@
     "influence_radius": {
       "type": "integer"
     },
+    "attack_range_frac": {
+      "type": "number"
+    },
     "flip_drag_orientation": {
       "type": "boolean"
     },
@@ -1422,9 +1431,6 @@
       "required": [
         "energy_demand"
       ]
-    },
-    "attack_range_frac": {
-      "type": "number"
     },
     "enable_orbital_shell": {
       "type": "boolean"
@@ -1513,7 +1519,6 @@
   "required": [
     "display_name",
     "description",
-    "unit_types",
-    "events"
+    "unit_types"
   ]
 }

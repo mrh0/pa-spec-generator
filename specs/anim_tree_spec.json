@@ -393,14 +393,42 @@
                       },
                       "scale_to_move_speed": {
                         "type": "boolean"
+                      },
+                      "transition_forward": {
+                        "type": "object",
+                        "properties": {
+                          "func": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "func",
+                          "target"
+                        ]
+                      },
+                      "transition_reverse": {
+                        "type": "object",
+                        "properties": {
+                          "func": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "func",
+                          "target"
+                        ]
                       }
                     },
                     "required": [
                       "type",
                       "name",
-                      "node",
-                      "transitions",
-                      "reset"
+                      "node"
                     ]
                   }
                 },
@@ -443,6 +471,618 @@
                     "true_target",
                     "false_target"
                   ]
+                },
+                "no_build_target": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "slots": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "entries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "node": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "anim_name": {
+                                  "type": "string"
+                                },
+                                "looping": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "anim_name",
+                                "looping"
+                              ]
+                            },
+                            "transitions": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "transition_forward": {
+                                    "type": "object",
+                                    "properties": {
+                                      "func": {
+                                        "type": "string"
+                                      },
+                                      "target": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "func",
+                                      "target"
+                                    ]
+                                  },
+                                  "transition_reverse": {
+                                    "type": "object",
+                                    "properties": {
+                                      "func": {
+                                        "type": "string"
+                                      },
+                                      "target": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "func",
+                                      "target"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "transition_forward",
+                                  "transition_reverse"
+                                ]
+                              }
+                            },
+                            "reset": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "name",
+                            "node",
+                            "transitions"
+                          ]
+                        }
+                      },
+                      "transition_seek": {
+                        "type": "object",
+                        "properties": {
+                          "func": {
+                            "type": "string"
+                          },
+                          "true_target": {
+                            "type": "string"
+                          },
+                          "false_target": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "func",
+                          "true_target",
+                          "false_target"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "entries",
+                      "transition_seek"
+                    ]
+                  }
+                },
+                "aim_bone_root": {
+                  "type": "string"
+                },
+                "node_aim_down": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "node_aim_neutral": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "node_aim_up": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "child": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "node_idle": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "anim_name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    },
+                    "node_walk": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "anim_name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "anim_name"
+                      ]
+                    },
+                    "entries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "node": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "anim_name": {
+                                "type": "string"
+                              },
+                              "looping": {
+                                "type": "boolean"
+                              },
+                              "events": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "time": {
+                                      "type": "number"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "parameters": {
+                                      "type": "object",
+                                      "properties": {
+                                        "cue": {
+                                          "type": "string"
+                                        },
+                                        "bone": {
+                                          "type": "string"
+                                        },
+                                        "spec": {
+                                          "type": "string"
+                                        },
+                                        "effect_scale": {
+                                          "type": "integer"
+                                        },
+                                        "bone_offset": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "number"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "time",
+                                    "type",
+                                    "parameters"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ]
+                          },
+                          "transitions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "transition_forward": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    },
+                                    "duration": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                },
+                                "transition_reverse": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    },
+                                    "duration": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "transition_forward",
+                                "transition_reverse"
+                              ]
+                            }
+                          },
+                          "reset": {
+                            "type": "string"
+                          },
+                          "scale_to_move_speed": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "node",
+                          "transitions"
+                        ]
+                      }
+                    },
+                    "node_fly": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "anim_name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "anim_name"
+                      ]
+                    },
+                    "transition_seek": {
+                      "type": "object",
+                      "properties": {
+                        "func": {
+                          "type": "string"
+                        },
+                        "true_target": {
+                          "type": "string"
+                        },
+                        "false_target": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "func",
+                        "true_target",
+                        "false_target"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "func": {
+                  "type": "string"
+                },
+                "node_0": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "entries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "node": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "anim_name": {
+                                "type": "string"
+                              },
+                              "looping": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ]
+                          },
+                          "transitions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "transition_forward": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                },
+                                "transition_reverse": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "transition_forward",
+                                "transition_reverse"
+                              ]
+                            }
+                          },
+                          "reset": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "node",
+                          "transitions"
+                        ]
+                      }
+                    },
+                    "transition_seek": {
+                      "type": "object",
+                      "properties": {
+                        "func": {
+                          "type": "string"
+                        },
+                        "true_target": {
+                          "type": "string"
+                        },
+                        "false_target": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "func",
+                        "true_target",
+                        "false_target"
+                      ]
+                    },
+                    "anim_name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "node_1": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "entries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "node": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "anim_name": {
+                                "type": "string"
+                              },
+                              "looping": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "type"
+                            ]
+                          },
+                          "transitions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "transition_forward": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                },
+                                "transition_reverse": {
+                                  "type": "object",
+                                  "properties": {
+                                    "func": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "func",
+                                    "target"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "transition_forward",
+                                "transition_reverse"
+                              ]
+                            }
+                          },
+                          "reset": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "node",
+                          "transitions"
+                        ]
+                      }
+                    },
+                    "transition_seek": {
+                      "type": "object",
+                      "properties": {
+                        "func": {
+                          "type": "string"
+                        },
+                        "true_target": {
+                          "type": "string"
+                        },
+                        "false_target": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "func",
+                        "true_target",
+                        "false_target"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "weapon_index": {
+                  "type": "integer"
                 }
               },
               "required": [
@@ -593,6 +1233,9 @@
                       "reset"
                     ]
                   }
+                },
+                "looping": {
+                  "type": "boolean"
                 }
               },
               "required": [
@@ -622,6 +1265,32 @@
             "living",
             "dead",
             "ghost"
+          ]
+        },
+        "node_idle": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "node_walk": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "anim_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "anim_name"
           ]
         }
       },
@@ -654,11 +1323,43 @@
               },
               "weapon_index": {
                 "type": "integer"
+              },
+              "bone": {
+                "type": "string"
+              },
+              "velocity": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "velocity_range": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "angular_velocity": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "angular_velocity_range": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "gravity": {
+                "type": "integer"
+              },
+              "drag": {
+                "type": "number"
               }
             },
             "required": [
-              "type",
-              "rotation_bone"
+              "type"
             ]
           },
           "bone": {
