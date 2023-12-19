@@ -4,7 +4,7 @@ import fs from 'fs';
 const pfs = fs.promises;
 
 // Set path to PA instllation folder:
-const paPath = process.argv[2] || "W:/Games/SteamLibrary/steamapps/common/Planetary Annihilation Titans"
+const paPath = process.argv[2] || "C:/SteamLibrary/steamapps/common/Planetary Annihilation Titans"
 // Set output path:
 const outputPath = "./specs"
 
